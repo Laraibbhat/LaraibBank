@@ -1,0 +1,41 @@
+services:
+  accounts:
+    container_name: accounts-ms
+    image: "lmushtaq1901/accounts:s4"
+    ports:
+      - "8080:8080"
+      - "8081:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - laraibBank
+  loans:
+    container_name: loans-ms
+    image: "lmushtaq1901/loans:s4"
+    ports:
+      - "8090:8090"
+      - "8091:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - laraibBank
+  cards:
+    container_name: cards-ms
+    image: "lmushtaq1901/cards:s4"
+    ports:
+      - "9000:9000"
+      - "9001:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - laraibBank
+
+networks:
+    laraibBank:
+      driver: "bridge"
